@@ -1,4 +1,4 @@
-// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+package aws.example.s3;// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0package aws.example.s3;
 // snippet-start:[s3.java1.s3_xfer_mgr_copy.import]
 
