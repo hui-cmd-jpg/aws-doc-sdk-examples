@@ -2,10 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 package aws.example.s3;
 
-import com.amazonaws.AmazonServiceException;
-import com.amazonaws.regions.Regions;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.obs.services.ObsClient;
+import com.obs.services.exception.ObsException;
 
 /**
  * Copy an object from one Amazon S3 bucket to another.
@@ -32,12 +30,18 @@ public class CopyObject {
 
         System.out.format("Copying object %s from bucket %s to %s\n",
                 object_key, from_bucket, to_bucket);
-        final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+        final ObsClient obsClient = new ObsClient("accessKey", "secretKey", "https://obs.region.myhuaweicloud.com");
         try {
-            s3.copyObject(from_bucket, object_key, to_bucket, object_key);
-        } catch (AmazonServiceException e) {
+            obsClient.copyObject(from_bucket, object_key, to_bucket, object_key);
+        } catch (ObsException e) {
             System.err.println(e.getErrorMessage());
             System.exit(1);
+        } finally {
+            try {
+                obsClient.close();
+            } catch (Exception e) {
+                // ignore
+            }
         }
         System.out.println("Done!");
     }
