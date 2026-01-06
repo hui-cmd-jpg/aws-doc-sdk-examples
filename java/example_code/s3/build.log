@@ -1,0 +1,86 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< aws.example.s3:s3examples >----------------------
+[INFO] Building Amazon S3 Examples 1.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ s3examples ---
+[INFO] Deleting /root/AWS-CLI/aws-doc-sdk-examples/java/example_code/s3/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ s3examples ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /root/AWS-CLI/aws-doc-sdk-examples/java/example_code/s3/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ s3examples ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 68 source files to /root/AWS-CLI/aws-doc-sdk-examples/java/example_code/s3/target/classes
+[WARNING] /root/AWS-CLI/aws-doc-sdk-examples/java/example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java: Some input files use or override a deprecated API.
+[WARNING] /root/AWS-CLI/aws-doc-sdk-examples/java/example_code/s3/src/main/java/aws/example/s3/S3Encrypt.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ s3examples ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /root/AWS-CLI/aws-doc-sdk-examples/java/example_code/s3/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ s3examples ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 8 source files to /root/AWS-CLI/aws-doc-sdk-examples/java/example_code/s3/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ s3examples ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running aws.example.s3.CopyObjectTest
+Copying object copiedObject from bucket fromBucket to toBucket
+Done!
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.557 s - in aws.example.s3.CopyObjectTest
+[INFO] Running aws.example.s3.GetObjectTags2Test
+Retrieving Object Tags for  keyName
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in aws.example.s3.GetObjectTags2Test
+[INFO] Running aws.example.s3.UploadObjectTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in aws.example.s3.UploadObjectTest
+[INFO] Running aws.example.s3.GetObjectTest
+Downloading keyName from S3 bucket fromBucket...
+Done!
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in aws.example.s3.GetObjectTest
+[INFO] Running aws.example.s3.DeleteObjectTest
+Deleting object deletedObject from S3 bucket: fromBucket
+Done!
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in aws.example.s3.DeleteObjectTest
+[INFO] Running aws.example.s3.GetObject2Test
+Downloading an object
+Content-Type: null
+Content: 
+Test content for OBS Object
+
+Printing bytes retrieved.
+
+
+Downloading an object
+Content-Type: null
+Content: 
+Test content
+
+Printing bytes retrieved.
+
+
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 s - in aws.example.s3.GetObject2Test
+[INFO] Running aws.example.s3.GetObjectTagsTest
+Retrieving Object Tags for  keyName
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in aws.example.s3.GetObjectTagsTest
+[INFO] Running aws.example.s3.ListBucketsTest
+Your Amazon S3 buckets are:
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in aws.example.s3.ListBucketsTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.845 s
+[INFO] Finished at: 2026-01-06T15:35:19+08:00
+[INFO] ------------------------------------------------------------------------

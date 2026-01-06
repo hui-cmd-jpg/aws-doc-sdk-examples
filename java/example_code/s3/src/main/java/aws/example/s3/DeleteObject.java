@@ -2,10 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 package aws.example.s3;
 
-import com.amazonaws.AmazonServiceException;
-import com.amazonaws.regions.Regions;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.obs.services.ObsClient;
+import com.obs.services.exception.ObsException;
 
 /**
  * Delete an object from an Amazon S3 bucket.
@@ -33,12 +31,18 @@ public class DeleteObject {
 
         System.out.format("Deleting object %s from S3 bucket: %s\n", object_key,
                 bucket_name);
-        final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+        final ObsClient obsClient = new ObsClient("accessKey", "secretKey", "https://obs.region.myhuaweicloud.com");
         try {
-            s3.deleteObject(bucket_name, object_key);
-        } catch (AmazonServiceException e) {
+            obsClient.deleteObject(bucket_name, object_key);
+        } catch (ObsException e) {
             System.err.println(e.getErrorMessage());
             System.exit(1);
+        } finally {
+            try {
+                obsClient.close();
+            } catch (Exception e) {
+                // ignore
+            }
         }
         System.out.println("Done!");
     }
