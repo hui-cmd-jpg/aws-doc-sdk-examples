@@ -1,22 +1,24 @@
 package aws.example.s3;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.mockConstruction;
+import static org.mockito.Mockito.when;
 
-import com.amazonaws.regions.Regions;
-import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.obs.services.ObsClient;
+import com.obs.services.model.ObsObject;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Answers;
-import org.mockito.MockedStatic;
+import org.mockito.MockedConstruction;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 
 @MockitoSettings(strictness = Strictness.LENIENT)
 class GetObjectTest {
@@ -35,16 +37,15 @@ class GetObjectTest {
     @Test
     void test_main_should_not_throw_exception() throws Exception {
         assertDoesNotThrow(() -> {
-            try (MockedStatic<AmazonS3ClientBuilder> mockedStaticAmazonS3ClientBuilder = mockStatic(
-                AmazonS3ClientBuilder.class, RETURNS_DEEP_STUBS)) {
+            try (MockedConstruction<ObsClient> mockedObsClient = mockConstruction(ObsClient.class,
+                    (mock, context) -> {
+                        ObsObject mockObsObject = mock(ObsObject.class);
+                        InputStream mockInputStream = new ByteArrayInputStream("test data".getBytes());
+                        when(mockObsObject.getObjectContent()).thenReturn(mockInputStream);
+                        when(mock.getObject(anyString(), anyString())).thenReturn(mockObsObject);
+                    })) {
                 // Given
-                AmazonS3ClientBuilder amazonS3ClientBuilder = mock(AmazonS3ClientBuilder.class,
-                    Answers.RETURNS_DEEP_STUBS);
-                mockedStaticAmazonS3ClientBuilder.when(
-                        () -> AmazonS3ClientBuilder.standard().withRegion(eq(Regions.DEFAULT_REGION)))
-                    .thenReturn(amazonS3ClientBuilder);
-
-                String[] args =  {"fromBucket", "keyName"};
+                String[] args = {"fromBucket", "keyName"};
 
                 // When
                 GetObject.main(args);
