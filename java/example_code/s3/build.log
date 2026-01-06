@@ -35,16 +35,16 @@
 [INFO] Running aws.example.s3.CopyObjectTest
 Copying object copiedObject from bucket fromBucket to toBucket
 Done!
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.6 s - in aws.example.s3.CopyObjectTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.575 s - in aws.example.s3.CopyObjectTest
 [INFO] Running aws.example.s3.GetObjectTags2Test
 Retrieving Object Tags for  keyName
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.558 s - in aws.example.s3.GetObjectTags2Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.519 s - in aws.example.s3.GetObjectTags2Test
 [INFO] Running aws.example.s3.UploadObjectTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in aws.example.s3.UploadObjectTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in aws.example.s3.UploadObjectTest
 [INFO] Running aws.example.s3.GetObjectTest
 Downloading keyName from S3 bucket fromBucket...
 Done!
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 s - in aws.example.s3.GetObjectTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in aws.example.s3.GetObjectTest
 [INFO] Running aws.example.s3.DeleteObjectTest
 Deleting object deletedObject from S3 bucket: fromBucket
 Done!
@@ -58,13 +58,13 @@ Content:
 Printing bytes retrieved.
 
 
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in aws.example.s3.GetObject2Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in aws.example.s3.GetObject2Test
 [INFO] Running aws.example.s3.GetObjectTagsTest
 Retrieving Object Tags for  keyName
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in aws.example.s3.GetObjectTagsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in aws.example.s3.GetObjectTagsTest
 [INFO] Running aws.example.s3.ListBucketsTest
 Your Amazon S3 buckets are:
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in aws.example.s3.ListBucketsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in aws.example.s3.ListBucketsTest
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -73,6 +73,6 @@ Your Amazon S3 buckets are:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.562 s
-[INFO] Finished at: 2026-01-06T10:01:23+08:00
+[INFO] Total time: 5.522 s
+[INFO] Finished at: 2026-01-06T10:05:14+08:00
 [INFO] ------------------------------------------------------------------------
